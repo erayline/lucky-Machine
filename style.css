@@ -1,0 +1,87 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+#baslik{
+    color: yellow;
+    backdrop-filter: blur(3px);
+    border-radius: 10rem;
+    padding: 2rem;
+}
+
+.hacker{
+    color: grey;    
+    position: absolute;
+    width: 110%;
+    height: 100vh;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    z-index: 2;
+    user-select: none;
+}
+
+.orta-kisim{
+    z-index: 3;
+    position: absolute;
+    user-select:text;
+    background:transparent;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+.sayfa{
+    z-index:1;
+    background:rgb(22, 28, 57);
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 100%;
+}
+
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: rgb(215, 231, 0);
+}
+
+.top-bakiye{
+    display: flex;
+    flex-direction: row;
+}
+.top-kazanc{
+    display: flex;
+    flex-direction: row;
+}
+
+.makine-arkasi{
+    backdrop-filter: blur(1px);
+    border-radius: 1rem;
+    padding: 2rem;
+    border-width: 2rem;
+    border-color: red;
+}
+
+.makine{
+    background-color: rgb(63, 170, 189);
+    width: 23rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
