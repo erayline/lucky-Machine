@@ -1,168 +1,96 @@
-*{
-    margin:0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-body{
-    overflow: hidden;
-    background:rgb(22, 28, 57);
+let hersey = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYZ123456789012345677890";
+hersey = (hersey.split(''));
 
-}
-#baslik{
-    color: yellow;
-    backdrop-filter: blur(3px);
-    border-radius: 2rem;
-    padding: 2rem;
-}
 
-.hacker{
-    color: green;    
-    position: absolute;
-    width: 110%;
-    height: 100vh;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    z-index: 2;
-    user-select: none;
-    opacity: 40%;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
-    filter: blur(0.8px);
-    font-family: 'Cute Font', cursive;
+
+
+function generate(){
+    arkaplanyazisi = " "
+    for (let i=0; i<10000; i++){
+        let rastgele = Math.random()
+        rastgele = rastgele*100
+        rastgele = rastgele.toFixed(0)
+        arkaplanyazisi += hersey[rastgele]
+    }
+    return arkaplanyazisi
 }
 
-.orta-kisim{
-    z-index: 3;
-    position: absolute;
-    user-select:text;
-    background:transparent;
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
+function arkaplancevir(){
+    document.getElementById("arkaplanimiz").innerText = generate()
 }
+document.getElementById("arkaplanimiz").innerText = generate()
 
-.sayfa{
-    z-index:1;
-    background:rgb(22, 28, 57);
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-    width: 100%;
-}
 
-.top{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 3rem;
-    background-color: rgb(215, 231, 0);
-}
 
-.top-bakiye{
-    display: flex;
-    flex-direction: row;
-}
-.top-kazanc{
-    display: flex;
-    flex-direction: row;
-}
+document.addEventListener("mousemove", function(event) {
+    arkaplancevir()
+});
 
-.bottom{
-    background-color: yellow;
-    height: 3rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
+setInterval(arkaplancevir,1000)
 
-.cevirButon{
-    width: 5rem;
-    height: 2rem;
-    border-radius: 2rem;
-    border-width: 1px;
-    background-color: green;
-    color: white;
-}
 
-.makine-arkasi{
-    backdrop-filter: blur(1px);
-    border-radius: 1rem;
-    padding: 2rem;
-    border-width: 2rem;
-    border-color: red;
-}
+let harita = [
+    "a",
+    "1",
+    "x",
+    "Z",
+    "{"
+]
 
-.makine{
-    background-color: rgb(63, 170, 189);
-    width: 24rem;
-    height: 30rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.bahis{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.bahis button{
-    width: 2rem;
-    height: 2rem;
-    background: transparent;
-    border: none;
-}
 
-#bahisMiktari{
-    border: 1rem;
-    padding-left:1rem ;
-    padding-right:1rem ;
-    display: flex;
-    align-items: center;
+let ilkKolonCekimi = []
+let ikinciKolonCekimi = []
+let ucuncuKolonCekimi = []
+
+function cekimOlustur(cekim){
+    for(let i=0; i<100; i++){
+        let miniList = []
+        for(let i=0;i<3;i++){
+            rastgeleHarf = harita[Math.floor(Math.random()*5)]
+            miniList.push(rastgeleHarf)
+        }
+        cekim.push(miniList)
+    }
     
 }
 
-.bahis img{
-    width: 2rem;
-    height: 2rem;
+
+
+function susluDegisimZamanla(kolonumuz,idimiz,satir){
+    for(let i=0; i<45;i++){
+        setTimeout(function() {
+            cekimOlustur(kolonumuz)
+            document.getElementById(idimiz).innerText = kolonumuz[i][satir]
+            console.log("en zeki benim")
+        }, i* 10 + i**2);
+        
+    }
 }
 
-.slotlar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 24rem;
-    font-size: 2rem;
-    color: rgb(49, 42, 175);
+function ilkKolonHazir(){
+    susluDegisimZamanla(ilkKolonCekimi,"11",0)
+    susluDegisimZamanla(ilkKolonCekimi,"22",1)
+    susluDegisimZamanla(ilkKolonCekimi,"33",2)
+}
+function ikinciKolonHazir(){
+    setTimeout(function(){
+        susluDegisimZamanla(ikinciKolonCekimi,"44",0)
+        susluDegisimZamanla(ikinciKolonCekimi,"55",1)
+        susluDegisimZamanla(ikinciKolonCekimi,"66",2)
+    },400)
+}
+function ucuncuKolonHazir(){
+    setTimeout(function(){
+        susluDegisimZamanla(ucuncuKolonCekimi,"77",0)
+        susluDegisimZamanla(ucuncuKolonCekimi,"88",1)
+        susluDegisimZamanla(ucuncuKolonCekimi,"99",2)
+    }, 800);
 }
 
-.colon{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 24rem;
-    width: 8rem;
-}
-.satir{
-    background:radial-gradient(rgb(0, 217, 255), rgb(158, 62, 62));
-    height: 6rem;
-    width: 4rem;
-    display: flex;
-    align-items: center;
-    padding-left: 1.4rem;
-    border-radius: 1rem;
+function cevir(){
+    ilkKolonHazir()
+    ikinciKolonHazir()
+    ucuncuKolonHazir()
+    console.log(ilkKolonCekimi)
 }
