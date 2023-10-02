@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAZAN</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Yeseva+One&display=swap" rel="stylesheet">    
 </head>
 <body>
     <div class="sayfa">
@@ -19,20 +22,41 @@
                 <div class="makine">
                     <div class="top">
                         <div class="top-bakiye">
-                            <h2>Bakiye:</h2><h2>100</h2><h2>$</h2>
+                            <h2>Bakiye:</h2><h2 id="bakiye">100</h2><h2>$</h2>
                         </div>
                         <div class="top-kazanc">
-                            <h2>Kazanç:</h2><h2>0</h2><h2>$</h2>
+                            <h2>Kazanç:</h2><h2 id="kazanc">0</h2><h2>$</h2>
                         </div>
                     </div>
                     
                     <div class="slotlar">
-                        <div class="colon">a</div>
-                        <div class="colon">a</div>
-                        <div class="colon">a</div>
+                        <div class="colon" id="ilkKolon">
+                            <div class="satir" id="11"><p>a</p></div>
+                            <div class="satir" id="22">b</div>
+                            <div class="satir" id="33">c</div>
+                        </div>
+                        <div class="colon" id="ikinciKolon">
+                            <div class="satir" id="44">b</div>
+                            <div class="satir" id="55">c</div>
+                            <div class="satir" id="66">d</div>
+                        </div>
+                        <div class="colon" id="ucuncuKolon"> 
+                            <div class="satir"  id="77">a</div>
+                            <div class="satir"  id="88">s</div>
+                            <div class="satir"  id="99">c</div>
+                        </div>
                     </div>
                     
-                    <div class="bottom"></div>
+                    <div class="bottom">
+                        <div class="bahis">
+                            <button><img src="down.png" alt=""></button>
+                            <div class="bahis-miktari">
+                                <h2 id="bahisMiktari">200</h2>
+                            </div>
+                            <button><img src="up.png" alt=""></button>
+                        </div>
+                        <button class="cevirButon" onclick="cevir()">ÇEVİR</button>
+                    </div>
                 </div>
             </div>
             
