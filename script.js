@@ -29,4 +29,4 @@ document.addEventListener("mousemove", function(event) {
 
 
 
-setInterval(arkplancevir,100)
+setInterval(arkplancevir,10000)
