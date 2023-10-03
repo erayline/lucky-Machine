@@ -38,12 +38,13 @@ let harita = [
 ]
 
 
+ilkKolonCekimi = []
+ikinciKolonCekimi = []
+ucuncuKolonCekimi = []
 
-let ilkKolonCekimi = []
-let ikinciKolonCekimi = []
-let ucuncuKolonCekimi = []
 
 function cekimOlustur(cekim){
+    
     for(let i=0; i<100; i++){
         let miniList = []
         for(let i=0;i<3;i++){
@@ -51,6 +52,7 @@ function cekimOlustur(cekim){
             miniList.push(rastgeleHarf)
         }
         cekim.push(miniList)
+        console.log(cekim)
     }
     
 }
@@ -58,11 +60,11 @@ function cekimOlustur(cekim){
 
 
 function susluDegisimZamanla(kolonumuz,idimiz,satir){
+    
+    cekimOlustur(kolonumuz)
     for(let i=0; i<45;i++){
         setTimeout(function() {
-            cekimOlustur(kolonumuz)
             document.getElementById(idimiz).innerText = kolonumuz[i][satir]
-            console.log("en zeki benim")
         }, i* 10 + i**2);
         
     }
@@ -93,4 +95,7 @@ function cevir(){
     ikinciKolonHazir()
     ucuncuKolonHazir()
     console.log(ilkKolonCekimi)
+    ilkKolonCekimi = []
+    ikinciKolonCekimi = []
+    ucuncuKolonCekimi = []
 }
