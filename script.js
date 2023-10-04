@@ -45,14 +45,13 @@ ucuncuKolonCekimi = []
 
 function cekimOlustur(cekim){
     
-    for(let i=0; i<100; i++){
+    for(let i=0; i<30; i++){
         let miniList = []
         for(let i=0;i<3;i++){
-            rastgeleHarf = harita[Math.floor(Math.random()*5)]
+            rastgeleHarf = harita[Math.floor(Math.random()*3)]
             miniList.push(rastgeleHarf)
         }
         cekim.push(miniList)
-        console.log(cekim)
     }
     
 }
@@ -98,4 +97,51 @@ function cevir(){
     ilkKolonCekimi = []
     ikinciKolonCekimi = []
     ucuncuKolonCekimi = []
+    setTimeout(function(){
+        cevirSonrasi()
+    },4000)
+    bakiye -= bahis
+    bakiyeGuncelle()
 }
+
+
+let bakiye = 340
+let bahis = 10
+
+function bakiyeGuncelle(){
+    document.getElementById("bakiye").innerText = bakiye
+}
+
+
+function bahisArttir(){
+    if(bakiye>bahis){
+        bahis += 10
+        document.getElementById("bahisMiktari").innerText = bahis
+    }
+}
+function bahisAzalt(){
+    if (bahis>9){
+        bahis -= 10
+        document.getElementById("bahisMiktari").innerText = bahis
+    }
+}
+
+function elementAlma(idimiz){
+    return document.getElementById(idimiz).textContent
+}
+
+function kazandiniz(){
+    console.log("kazandın")
+    bakiye += bahis*10
+    bakiyeGuncelle()
+}
+
+function cevirSonrasi(){
+    if( elementAlma("22") ==  elementAlma("55") == elementAlma("88") ){
+        kazandiniz()
+    }
+
+}
+
+
+bakiyeGuncelle()
